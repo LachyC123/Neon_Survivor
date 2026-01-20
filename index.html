@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>Neon Survivors v2 (GitHub Pages)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="hud">
+    <div class="row">
+      <div class="pill"><span id="time">00:00</span></div>
+      <div class="pill">HP <span id="hp">100</span>/<span id="hpMax">100</span></div>
+      <div class="pill">LV <span id="level">1</span></div>
+      <div class="pill">K <span id="kills">0</span></div>
+      <div class="pill">Coins <span id="coins">0</span></div>
+    </div>
+    <div class="bar">
+      <div class="barLabel">XP</div>
+      <div class="barOuter"><div id="xpFill" class="barFill"></div></div>
+    </div>
+    <div class="bar">
+      <div class="barLabel">Run</div>
+      <div class="barOuter"><div id="runFill" class="barFill runFill"></div></div>
+    </div>
+  </div>
+
+  <canvas id="game"></canvas>
+
+  <!-- Touch controls -->
+  <div id="touch">
+    <div id="joyBase"><div id="joyKnob"></div></div>
+    <button id="pauseBtn" aria-label="Pause">⏸</button>
+  </div>
+
+  <!-- Pause / Menu -->
+  <div id="overlay" class="hidden">
+    <div class="panel">
+      <h1>Neon Survivors v2</h1>
+      <p class="muted">Survivor-like roguelite action. Original visuals + code, GitHub Pages friendly.</p>
+
+      <div class="grid">
+        <div class="stat">Best: <span id="bestTime">00:00</span></div>
+        <div class="stat">Last: <span id="lastTime">00:00</span></div>
+        <div class="stat">Bank: <span id="bankCoins">0</span> coins</div>
+        <div class="stat">Stage: <span id="stageName">Neon Grid</span></div>
+      </div>
+
+      <h3 class="h3">Permanent Upgrades (Meta)</h3>
+      <div class="meta">
+        <button class="metaBtn" id="metaHp">+ Max HP (50c)</button>
+        <button class="metaBtn" id="metaDmg">+ Damage (60c)</button>
+        <button class="metaBtn" id="metaMove">+ Move (40c)</button>
+        <button class="metaBtn" id="metaMag">+ Magnet (40c)</button>
+      </div>
+
+      <div class="btnRow">
+        <button id="start">Start Run</button>
+        <button id="resume">Resume</button>
+        <button id="restart">Restart</button>
+      </div>
+
+      <p class="hint">Mobile: drag joystick. Desktop: WASD/Arrows. Auto-aim + auto-attack. Bosses at 5:00 and 10:00. Win at 12:00.</p>
+    </div>
+  </div>
+
+  <!-- Level Up -->
+  <div id="levelUp" class="hidden">
+    <div class="panel">
+      <h2>Level Up!</h2>
+      <p class="muted">Choose one upgrade</p>
+      <div id="cards" class="cards"></div>
+    </div>
+  </div>
+
+  <!-- End screen -->
+  <div id="end" class="hidden">
+    <div class="panel">
+      <h2 id="endTitle">Run Complete!</h2>
+      <p class="muted" id="endDesc">You survived the stage.</p>
+      <div class="grid">
+        <div class="stat">Time: <span id="endTime">00:00</span></div>
+        <div class="stat">Kills: <span id="endKills">0</span></div>
+        <div class="stat">Coins earned: <span id="endCoins">0</span></div>
+        <div class="stat">Bank: <span id="endBank">0</span></div>
+      </div>
+      <div class="btnRow">
+        <button id="endRestart">New Run</button>
+        <button id="endClose">Back to Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
